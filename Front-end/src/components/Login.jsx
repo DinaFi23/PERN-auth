@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField";
+import '../assets/style/Login.css'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,25 +34,52 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <div className="form">
+        <form onSubmit={handleSubmit} id="form">
+
+    <TextField 
+        label="Email"
+        variant="outlined"
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+    />
+
+     {/* 
+        <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+    */}
+    
 
-      <input
+     <TextField 
+    
+        label="Mots de passe"
+        variant="outlined"
+        type="password"
+        placeholder="Mots de passe"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+    />
+
+    {/* 
+        <input
         type="password"
         placeholder="Mot de passe"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      />
-
-      <button type="submit">Login</button>
+      /> 
+    */}
+         
+    <Button  type="submit" variant="contained">Login</Button>
 
       <p>{message}</p>
     </form>
+    </div>
   );
 }
 

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Button from '@mui/material/Button';
+import TextField from "@mui/material/TextField";
+import '../assets/style/Register.css'
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -21,27 +24,54 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Créer un compte</h2>
+    <div className="form">
+         <h2>Créer un compte</h2>
+        <form onSubmit={handleSubmit} id="form">
+   
+    <TextField 
+        label="Email"
+        variant="outlined"
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+    />
 
-      <input
+    {/*
+        <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
+    */}
+      
 
-      <input
+        <TextField 
+            label="Mots de passe"
+            variant="outlined"
+            type="password"
+            placeholder="Mots de passe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+        />
+
+     {/* 
+        <input
         type="password"
         placeholder="Mot de passe"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+     */}
+      
 
-      <button type="submit">S'inscrire</button>
+      <Button  type="submit" variant="contained">S'inscrire</Button>
 
       <p>{message}</p>
     </form>
+    </div>
+    
   );
 }
 
